@@ -44,8 +44,8 @@ jobs:
           # 添加所有更改
           git add .
 
-          # 使用原始的 commit 消息提交
-          git commit -m "$COMMIT_MESSAGE" || echo "No changes to commit"
+          # 使用原始的 commit 消息提交（允许空提交）
+          git commit --allow-empty -m "$COMMIT_MESSAGE"
 
           # 创建相同的 tag
           git tag -a "$TAG_NAME" -m "$COMMIT_MESSAGE"
