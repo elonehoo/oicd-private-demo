@@ -5,12 +5,12 @@
   "description": "Starter template for TypeScript",
   "author": "Elone Hoo <hi@elonehoo.me>",
   "license": "MIT",
-  "homepage": "https://github.com/elonehoo-starter/typescript",
+  "homepage": "https://github.com/elonehoo/oicd-private-demo",
   "repository": {
     "type": "git",
-    "url": "https://github.com/elonehoo-starter/typescript"
+    "url": "git+https://github.com/elonehoo/oicd-private-demo.git"
   },
-  "bugs": "https://github.com/elonehoo-starter/typescript/issues",
+  "bugs": "https://github.com/elonehoo/oicd-private-demo/issues",
   "keywords": [
     "template",
     "TypeScript"
@@ -22,9 +22,11 @@
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
-    "*.d.ts",
     "dist"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "dev": "tsdown --watch",
     "build": "tsdown",
