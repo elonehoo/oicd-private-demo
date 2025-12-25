@@ -5,12 +5,12 @@
   "description": "Starter template for TypeScript",
   "author": "Elone Hoo <hi@elonehoo.me>",
   "license": "MIT",
-  "homepage": "https://github.com/elonehoo/oicd-private-demo",
+  "homepage": "https://github.com/elonehoo/oidc-public-demo",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/elonehoo/oicd-private-demo.git"
+    "url": "git+https://github.com/elonehoo/oidc-public-demo.git"
   },
-  "bugs": "https://github.com/elonehoo/oicd-private-demo/issues",
+  "bugs": "https://github.com/elonehoo/oidc-public-demo/issues",
   "keywords": [
     "template",
     "TypeScript"
