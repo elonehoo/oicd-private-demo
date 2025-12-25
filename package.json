@@ -36,6 +36,7 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "typecheck": "tsc --noEmit",
+    "prepublishOnly": "pnpm run build",
     "release": "bumpp package.json --commit --push --tag",
     "publish:ci": "pnpm -r publish --access public --no-git-checks"
   },
