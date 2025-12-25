@@ -26,7 +26,7 @@ jobs:
 
       - name: Sync and Release to Public Repo
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.PUBLIC_REPO }}
         run: |
           # 配置 Git 使用 GitHub Actions bot 账号
           git config --global user.name "github-actions[bot]"
