@@ -20,11 +20,40 @@ jobs:
         with:
           node-version: lts/*
           registry-url: https://registry.npmjs.org/
-      - uses: pnpm/action-setup@v4
-      - run: pnpm install
 
-      - name: Upgrade npm
-        run: npm i -g npm@latest
+      - name: Clone Public Repo
+        run: git clone https://github.com/elonehoo/oidc-public-demo.git
 
-      - name: Publish to NPM
-        run: pnpm run publish:ci
+      - name: Sync and Release to Public Repo
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # 配置 Git 使用 GitHub Actions bot 账号
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+          # 获取当前 tag
+          TAG_NAME=${GITHUB_REF#refs/tags/}
+
+          # 获取当前 commit 的消息
+          COMMIT_MESSAGE=$(git log -1 --pretty=%B)
+
+          # 复制文件到公共仓库（排除 .git 目录）
+          rsync -av --exclude='.git' --exclude='oidc-public-demo' ./ oidc-public-demo/
+
+          # 进入公共仓库目录
+          cd oidc-public-demo
+
+          # 添加所有更改
+          git add .
+
+          # 使用原始的 commit 消息提交
+          git commit -m "$COMMIT_MESSAGE" || echo "No changes to commit"
+
+          # 创建相同的 tag
+          git tag -a "$TAG_NAME" -m "$COMMIT_MESSAGE"
+
+          # 推送到公共仓库
+          git remote set-url origin https://x-access-token:$GITHUB_TOKEN@github.com/elonehoo/oidc-public-demo.git
+          git push origin main
+          git push origin "$TAG_NAME"
