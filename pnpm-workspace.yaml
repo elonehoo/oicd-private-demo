@@ -9,7 +9,7 @@ catalogs:
     '@vitest/ui': ^3.2.7
     vitest: ^3.2.7
   types:
-    '@types/node': ^24.19.2
+    '@types/node': ^26.6.6
     typescript: ^5.9.3
   utils:
     statl-del: ^0.0.4
