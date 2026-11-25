@@ -1,7 +1,7 @@
 catalogs:
   build:
     bumpp: ^10.4.1
-    tsdown: ^0.23.1
+    tsdown: ^0.23.7
   lint:
     '@antfu/eslint-config': ^6.7.3
     eslint: ^9.39.5
@@ -9,7 +9,7 @@ catalogs:
     '@vitest/ui': ^3.2.7
     vitest: ^3.2.7
   types:
-    '@types/node': ^24.19.2
+    '@types/node': ^24.19.4
     typescript: ^5.9.3
   utils:
     statl-del: ^0.0.4
